@@ -13,6 +13,7 @@ def load_model():
 
 
 def predict(model, input_data):
+  input_data = input_data.drop(columns=['price'])
   prediction = model.predict(input_data)
   return prediction
 
