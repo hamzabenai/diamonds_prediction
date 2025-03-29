@@ -7,8 +7,8 @@ def load_data():
   return data 
 
 def load_model():
-  with open('model.joblib', 'rb') as file:
-    model = joblib.load(file)
+  file = 'model.joblib'
+  model = joblib.load(file)
   return model
 
 
