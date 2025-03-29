@@ -22,6 +22,16 @@ def main():
   st.write('here is the sample of the data :')
   data = load_data()
   st.write(data.head())
-  
+  st.title('We need you so submit the input data as csv file :')
+  input_file = st.file_uploader("Upload CSV", type=["csv"])
+  if input_file is not None:
+    input_data = pd.read_csv(input_file)
+    st.write('Here is the input data:')
+    st.write(input_data.head())
+    model = load_model()
+    prediction = predict(model, input_data)
+    st.write('Here is the prediction:')
+    st.write(prediction)
+    st.write('thanks')
 if __name__ == '__main__':
   main()
