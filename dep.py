@@ -19,4 +19,7 @@ def predict(model, input_data):
 def main():
   st.title('This is a streamlit app for predicting the diamonds price:')
   st.write('This is a streamlit app for predicting the diamonds price:')
-  # we need first to link the github repo with the streamlit app 
+  # we need first to link the streamlit with the github repo
+  
+if __name__ == '__main__':
+  main()
