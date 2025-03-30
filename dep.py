@@ -1,6 +1,7 @@
 import pandas as pd 
 import streamlit as st
 import joblib
+from sklearn.preprocessing import LabelEncoder
 
 def load_data():
   data = pd.read_csv('train_data.csv')
@@ -14,6 +15,10 @@ def load_model():
 
 def predict(model, input_data):
   input_data = input_data.drop(columns=['price'])
+  for column in input_data.columns:
+    if input_data[column].dtype == 'object':
+      le = LabelEncoder()
+      input_data[column] = le.fit_transform(input_data[column])
   prediction = model.predict(input_data)
   return prediction
 
