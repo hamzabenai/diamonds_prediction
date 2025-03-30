@@ -26,18 +26,18 @@ def main():
   st.title('This is a streamlit app for predicting the diamonds price:')
   st.write('This is a streamlit app for predicting the diamonds price:')
   st.write('here is the sample of the data :')
-  data = load_data()
+  data = load_data() # loading the shape of the training data 
   st.write(data.head())
-  st.title('We need you so submit the input data as csv file :')
+  st.title('We need you to submit the input data as csv file :')
   input_file = st.file_uploader("Upload CSV", type=["csv"])
   if input_file is not None:
-    input_data = pd.read_csv(input_file)
+    input_data = pd.read_csv(input_file) # loading the input data
     st.write('Here is the input data:')
     st.write(input_data.head())
-    model = load_model()
+    model = load_model() # loading the model , the model is trained 
     prediction = predict(model, input_data) # making the prediction
     st.write('Here is the prediction:')
-    st.write(prediction)
+    st.write(prediction) # displaying the predictions
     st.write('thanks')
 if __name__ == '__main__':
   main()
